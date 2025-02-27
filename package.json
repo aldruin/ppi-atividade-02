@@ -1,0 +1,37 @@
+{
+  "name": "ppi-atividade-02",
+  "version": "1.0.0",
+  "description": "Backend da aplicacao de cadastro de Clientes",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldruin/PPI-AULA02.git"
+  },
+  "keywords": [
+    "API",
+    "Backend",
+    "MVC",
+    "Nodejs",
+    "REST",
+    "HTTP"
+  ],
+  "author": "Aldruin Bonfim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aldruin/PPI-AULA02/issues"
+  },
+  "homepage": "https://github.com/aldruin/PPI-AULA02#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "express-static": "^1.2.6",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.12.0"
+  }
+}
