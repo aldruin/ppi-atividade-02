@@ -22,7 +22,8 @@ async function carregarDetalhes() {
 
     document.getElementById("titulo").textContent = `Pacote para ${pacote.destino}`;
     document.getElementById("descricao").textContent = `Descrição: ${pacote.descricao || "Sem descrição disponível"}`;
-    document.getElementById("data").textContent = `Partida: ${new Date(pacote.data_partida).toLocaleDateString("pt-BR")}`;
+    document.getElementById("data_partida").textContent = `Partida: ${new Date(pacote.data_partida).toLocaleDateString("pt-BR")}`;
+    document.getElementById("data_retorno").textContent = `Retorno: ${new Date(pacote.data_retorno).toLocaleDateString("pt-BR")}`;
     document.getElementById("preco").textContent = `Preço: R$ ${parseFloat(pacote.preco).toFixed(2)}`;
 
     window.precoUnitario = pacote.preco;
