@@ -83,7 +83,8 @@ export default class ClienteController {
     try{
       const { email, senha } = req.body;
       const cliente = await Cliente.findByEmail(email);
-
+      const redirectTo = req.session.redirectTo || '/';
+      
       if (!cliente){
         return res.status(404).jason({ error: 'Cliente não encontrado' });
       }
@@ -91,26 +92,13 @@ export default class ClienteController {
       const senhaValida = await comparePassword(senha, cliente.senha);
 
       if (!senhaValida){
-        return res.status(401).jason({ error: 'Senha incorreta' });
+        res.redirect('/login.html');
       }
 
-      res.json({message: 'Login realizado com sucesso =)'});
+      req.session.autenticado = true;
+      res.redirect(redirectTo);
     } catch (error) {
       res.status(500).json({error: error.message});
-    }
-  }
-
-  static async logout (req, res){
-    try {
-      req.session.destroy((error) => {
-        if (error) {
-          return res.status(500).json({ error: 'Erro ao finalizar a sessão' });
-        }
-        
-        res.redirect('/login.html');
-      });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
     }
   }
 }

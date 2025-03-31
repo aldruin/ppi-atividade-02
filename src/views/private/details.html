@@ -11,16 +11,12 @@
 </head>
 
 <body>
-  <nav class="navbar bg-body-tertiary">
+  <nav class="navbar bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand">VP - VenderPacotes</a>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Procurar" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Procurar</button>
-      </form>
+      <a class="navbar-brand" href="index.html">VP - VenderPacotes</a>
     </div>
   </nav>
-
+  <br><br>
   <div class="container mt-5">
     <div class="text-center">
       <h3 id="titulo"></h3>
@@ -40,40 +36,12 @@
 
         <div class="mt-4">
           <button class="btn btn-secondary" type="button" onclick="history.back()">Voltar</button>
-          <a href="/" class="btn btn-primary" onclick="alert('Parabéns! Compra realizada.'); return false;">Comprar</a>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const params = new URLSearchParams(window.location.search);
-      const destino = params.get("destino");
-      const data = params.get("data");
-      const preco = parseFloat(params.get("preco"));
-
-      document.getElementById("titulo").textContent = `Pacote para ${destino}`;
-      document.getElementById("descricao").textContent = `Aproveite sua viagem para ${destino} com todo conforto e segurança!`;
-      document.getElementById("data").textContent = data;
-      document.getElementById("preco").textContent = preco.toFixed(2);
-      document.getElementById("valorTotal").textContent = preco.toFixed(2);
-
-      document.getElementById("quantidade").addEventListener("input", function () {
-        let quantidade = parseInt(this.value);
-        if (quantidade < 1) {
-          quantidade = 1;
-          this.value = 1;
-        }
-        if (quantidade > 10) {
-          quantidade = 10;
-          this.value = 10;
-        }
-        document.getElementById("valorTotal").textContent = (preco * quantidade).toFixed(2);
-      });
-    });
-  </script>
-
+  <script src="./scripts/details.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

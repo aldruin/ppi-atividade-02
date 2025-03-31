@@ -9,3 +9,4 @@ export default function autenticar(req, res, next) {
     res.redirect('/login.html');
   }
 }
+

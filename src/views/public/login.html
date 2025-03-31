@@ -10,73 +10,49 @@
 </head>
 
 <body>
-  <br />
-  <div class="container d-flex justify-content-center">
-    <h1>Bem-vindo(a)! Faça login para continuar.</h1>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">VP - VenderPacotes</a>
+    </div>
+  </nav>
 
-    <form method="POST" action="/login" class="row g-3 needs-validation" novalidate>
-      <div class="row pt-4">
-        <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">Usuário</label>
-          <input type="text" class="form-control" id="validationCustom01" name="usuario" value="" required>
-          <div class="valid-feedback text-center">
-            OK!
-          </div>
-          <div class="invalid-feedback text-center">
-            Por favor, informe o nome do usuário!
-          </div>
-        </div>
-      </div>
+  <div class="container d-flex justify-content-center my-5">
+    <div class="col-md-6">
+      <h1 class="text-center">Bem-vindo(a)! Faça login para continuar.</h1>
 
-      <div class="row pt-4">
-        <div class="col-md-6">
-          <label for="validationCustomUsername" class="form-label">Senha:</label>
-          <div class="input-group has-validation text-center">
-            <span class="input-group-text" id="inputGroupPrepend">#</span>
-            <input type="password" class="form-control" id="validationCustomUsername" name="senha"
-              aria-describedby="inputGroupPrepend" required>
-            <div class="valid-feedback text-center">
-              OK!
-            </div>
-            <div class="invalid-feedback ">
-              Por favor, informe a senha.
-            </div>
+      <form method="POST" action="/login" class="needs-validation" novalidate>
+        <div class="mb-4">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+          <div class="invalid-feedback">
+            Por favor, informe o email do usuário!
           </div>
         </div>
-      </div>
 
-      <div class="row pt-2 ">
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">Login</button>
+        <div class="mb-4">
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="senha" name="senha" required>
+          <div class="invalid-feedback">
+            Por favor, informe a senha.
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
           <button class="btn btn-secondary" type="button" onclick="history.back()">Voltar</button>
+          <button class="btn btn-success" type="submit">Login</button>
         </div>
-      </div>
-    </form>
+      </form>
 
-    <div class="row pt-4">
-      <div class="col-12 text-center">
+      <div class="text-center mt-4">
         <p>Não é cadastrado? <a href="/cadastro.html">Cadastre-se</a></p>
       </div>
     </div>
-
-    <script>
-      (() => {
-        'use strict'
-        const forms = document.querySelectorAll('.needs-validation')
-        Array.from(forms).forEach(form => {
-          form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-          }, false)
-        })
-      })()
-    </script>
   </div>
+
+  <script src="./scripts/login.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </html>

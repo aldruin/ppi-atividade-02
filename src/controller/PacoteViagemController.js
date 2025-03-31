@@ -4,8 +4,13 @@ export default class PacoteViagemController {
   static async create(req, res) {
     try {
       const { destino, data_partida, data_retorno, preco, descricao } = req.body;
-      const id = await PacoteViagem.create(destino, data_partida, data_retorno, preco, descricao);
-      res.status(201).json({ id });
+      const pacote = await PacoteViagem.create(destino, data_partida, data_retorno, preco, descricao);
+
+      return res.status(201).json({
+        success: true,
+        message: 'Pacote cadastrado com sucesso!',
+        cliente: pacote
+      });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
